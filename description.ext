@@ -10,7 +10,7 @@ enableDebugConsole = 1; //Allow admins to use the debug console
 
 //Shown at mission select
 overviewText = "A tank-centered tragedy.";
-briefingName = "COOP 15 Oscillating Unident 0.1c";
+briefingName = "COOP 15 Oscillating Unident 0.1d";
 class Header {
 	gameType = COOP;
 	minplayers = 2;
@@ -42,17 +42,18 @@ class Params
         texts[] = {"No", "Yes"};
         default = 1;
     };
-	class ace_medical_playerDamageThreshold
+	class snx_ctab_toggle
     {
-        title = "ACE3 health modifier (Default: 100%)";
-        ACE_setting = 1;
-        values[] = {1,2,3};
-        texts[] = {"100%", "200%", "300%"};
+        title = "Enable cTab? (Default: Enable)";
+        ACE_setting = 0;
+        values[] = {0,1};
+        texts[] = {"Disable", "Enable"};
         default = 1;
     };
 };
 
 //TFR fix function
+//Doesn't work for vehicles, sadly
 class CfgFunctions
 {
 	class SNX

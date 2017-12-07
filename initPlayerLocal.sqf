@@ -49,9 +49,7 @@ player createDiaryRecord ["Diary", ["Assets", "You have at your disposal:<br/>
 - 1 Bobcat Support Vehicle (Romeo)<br/>
 - 1 Offroad w/ tools (Juliet)<br/>
 - 1 Stomper RCWS UGV<br/>
-- 1 MQ-12 Falcon (Bingo Ammo)<br/>
-- 1 MQ-4A Greyhawk (Bingo Ammo)<br/>
-- 1 UCAV Sentinel (Bingo Ammo)<br/>
+- 1 UCAV Sentinel<br/>
 - Numerous AR-2 Recon Drones<br/>
 "]];
 
@@ -69,7 +67,7 @@ removeAllItems player;
 removeAllAssignedItems player;
 removeBackpack player;
 
-player forceAddUniform "U_B_CombatUniform_mcam_vest";
+player forceAddUniform "U_B_CombatUniform_mcam_tshirt";
 player addHeadgear "H_HelmetSpecB_paint2";
 
 
@@ -78,7 +76,12 @@ player linkItem "ItemRadio";
 player linkItem "ItemMap";
 player linkItem "ItemCompass";
 player linkItem "ItemWatch";
-player linkItem "ItemAndroid";	
+if (paramsArray select 2 == 1) then {
+	player linkItem "itemAndroid";	
+	}
+	else {
+	player linkItem "ItemGPS";
+};
 player addItem "NVGoggles";
 
 //set up gear for specific types first
@@ -137,7 +140,9 @@ switch (typeOf player) do
 			player addHandgunItem "ACE_muzzle_mzls_smg_01";
 			player addHandgunItem "optic_MRD";
 			player linkItem "B_UavTerminal";
-			player addItem "ItemAndroid";
+			if (paramsArray select 2 == 1) then {
+				player addItem "ItemAndroid";	
+			};
 			
 						
 		};
